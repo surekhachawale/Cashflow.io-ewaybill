@@ -1,0 +1,158 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="canceleinvoiceformDialog"
+        title="E-invoice Cancel Details"
+    >
+        <content>
+            <f:Form
+                id="canceleinvoiceform"
+                editable="true"
+            >
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        id="grid2"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="4"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer id="containes">
+                        <form:formElements>
+                            <f:FormElement id="_IDGenFormElement8"  label="Source Document ">
+                                <f:fields>
+                                    <Input id="_IDGenInput1" 
+                                        value="{EinvoiceModel>/DocNumber}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="false"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData9"  span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                             <f:FormElement id="_IDGenFormElement9"  label="Invoice Number ">
+                                <f:fields>
+                                    <Input id="_IDGenInput2" 
+                                        value="{EinvoiceModel>/invoiceNumber}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="false"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData10"  span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement id="_IDGenFormElement10" 
+                                visible="true"
+                                label="Cancel Reason Code "
+                                
+                            >
+                                <f:fields>
+                                    <Select
+                                        id="einvoiceresoncodetype"
+                                        width="auto"
+                                        required="false"
+                                        visible="true"
+                                        selectedKey="{EinvoiceModel>/Einvoicereasoncode}"
+                                        valueStateText="Invalid entry"
+                                        forceSelection="false"
+                                    >
+                                        <items>
+                                            <core:Item
+                                                id="itmes1"
+                                                key="1"
+                                                text="Duplicate"
+                                            />
+                                           
+                                            <core:Item
+                                                id="itmes2"
+                                                key="2"
+                                                text="Data Entry Mistake"
+                                            />
+                                            
+                                        </items>
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData11" span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Select>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement id="_IDGenFormElement11"  label="Cancellation Remarks ">
+                                <f:fields>
+                                    <Input
+                                        id="einvoicecancelremarks"
+                                        value="{EinvoiceModel>/cancellationremark}"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData12"  span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                        </form:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </content>
+        <beginButton>
+            <Button
+                id="canceleinvoicesave"
+                text="Save"
+                press="oncanceleinvoiceSave"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="canceleinvoicecancel"
+                text="Cancel"
+                press="oncanceleinvoiceCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

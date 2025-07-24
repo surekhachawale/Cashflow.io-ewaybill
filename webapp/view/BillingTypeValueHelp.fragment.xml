@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <SelectDialog
+        id="_IDGenSelectDialog1"
+        title="Billing Type"
+        growingThreshold="100"
+        search="_onBillTypeSearch"
+        confirm="_onBillTypeValueHelpConfirm"
+        items="{BillTypeDataModel>/results}"
+        multiSelect="true"
+    >
+        <customData>
+            <core:CustomData
+                key="selectedPropertyPath"
+                value="{BillTypeDataModel>BillingDocumentType}"
+                writeToDom="false"
+            />
+        </customData>
+        <items>
+            <StandardListItem
+                id="_IDGenStandardListItem4"
+                title="{BillTypeDataModel>BillingDocumentType}"
+                description=""
+                infoState="None"
+            />
+        </items>
+    </SelectDialog>
+</core:FragmentDefinition>

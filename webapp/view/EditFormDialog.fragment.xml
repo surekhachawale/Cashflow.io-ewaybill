@@ -1,0 +1,484 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="editFormDialog"
+        title="eWay Bill Details"
+    >
+        <content>
+            <f:Form
+                id="editoform"
+                editable="true"
+            >
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        id="grid1"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="4"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer id="containe1">
+                        <form:formElements>
+                            <f:FormElement
+                                id="element01"
+                                label="Doc Number "
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="Input01"
+                                        value="{localModel>/DocNumber}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="false"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData01"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element4"
+                                label="Transporter ID "
+                                visible="true"
+                            >
+                                <!-- transporter for vendor master-->
+                                <f:fields>
+                                    <Input
+                                        id="Input4"
+                                        value="{localModel>/TransporterId}"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData1"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element3"
+                                label="Transporter Name "
+                                visible="true"
+                            >
+                                <!-- for one time transporter-->
+                                <f:fields>
+                                    <Input
+                                        id="Input3"
+                                        value="{localModel>/TransporterName}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData10"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <!-- <form:FormElement
+                                id="element1"
+                                visible="true"
+                                label="Transporter Type "
+                            >
+                                <form:fields>
+                                    <Select
+                                        id="transportertype"
+                                        width="auto"
+                                        required="false"
+                                        visible="true"
+                                        selectedKey="{localModel>/TransporterType}"
+                                        valueStateText="Invalid entry"
+                                        forceSelection="true"
+                                    >
+                                        <items>
+                                            <core:Item
+                                                id="itm1"
+                                                key="1"
+                                                text="Transporter From Vendor Master"
+                                            />
+                                            <core:Item
+                                                id="itm2"
+                                                key="2"
+                                                text="One Time Transporter"
+                                            />
+                                        </items>
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData11"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Select>
+                                </form:fields>
+                            </form:FormElement> -->
+
+                            <f:FormElement
+                                id="element5"
+                                label="Transport Doc No "
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="transportDocNo"
+                                        value="{localModel>/TransportDocNo}"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData3"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element6"
+                                label="Transport Doc Date "
+                            >
+                                <f:fields>
+                                    <DatePicker
+                                        id="idTransportDocDate"
+                                        value="{localModel>/TransportDocDate}"
+                                        width="auto"
+                                        required="false"
+                                        placeholder=""
+                                        valueStateText="Invalid entry"
+                                        enabled="true"
+                                        visible="true"
+                                        valueFormat="yyyy-MM-ddT00:00:00"
+                                        displayFormat="dd.MM.yyyy"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData4"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </DatePicker>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element7"
+                                label="Mode Of Transport "
+                            >
+                                <f:fields>
+                                    <Select
+                                        id="transportmode"
+                                        width="auto"
+                                        required="false"
+                                        visible="true"
+                                        selectedKey="{localModel>/ModeOfTransport}"
+                                        valueStateText="Invalid entry"
+                                        forceSelection="false"
+                                    >
+                                        <items>
+                                        <core:Item
+                                                id="item6"
+                                                key=""
+                                                text=""
+                                            />
+                                            <core:Item
+                                                id="item1"
+                                                key="1"
+                                                text="Road"
+                                            />
+                                            <core:Item
+                                                id="item2"
+                                                key="2"
+                                                text="Rail"
+                                            />
+                                            <core:Item
+                                                id="item3"
+                                                key="3"
+                                                text="Air"
+                                            />
+                                            <core:Item
+                                                id="item4"
+                                                key="4"
+                                                text="Ship"
+                                            />
+                                            <core:Item
+                                                id="item5"
+                                                key="5"
+                                                text="In Transit"
+                                            />
+                                        </items>
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData12"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Select>
+
+                                    <!-- <Input
+                                        id="_IDGenInput2"
+                                        value="{localModel>/ModeOfTransport}"
+                                        type="Text"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData5"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                    <Label text="Road" /> -->
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element8"
+                                label="Vehicle Type "
+                            >
+                                <f:fields>
+                                    <Select
+                                        id="vehicletype"
+                                        width="auto"
+                                        required="false"
+                                        visible="true"
+                                        selectedKey="{localModel>/VehicleType}"
+                                        valueStateText="Invalid entry"
+                                        forceSelection="false"
+                                    >
+                                        <items>
+                                            <core:Item
+                                                id="i3"
+                                                key=""
+                                                text=""
+                                            />
+                                            <core:Item
+                                                id="i1"
+                                                key="R"
+                                                text="Regular"
+                                            />
+                                            <core:Item
+                                                id="i2"
+                                                key="O"
+                                                text="Over Dimensional Cargo"
+                                            />
+                                        </items>
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData14"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Select>
+
+                                    <!-- <Input
+                                        id="_IDGenInputPC"
+                                        value="{localModel>/VehicleType}"
+                                        type="Text"
+                                        change=""
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="_IDGenGridDataPC"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                    <Label text="Regular" /> -->
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element9"
+                                label="Transport Dist in KM "
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="_IDGenInput44"
+                                        value="{localModel>/transportdistance}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData6"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                    <!-- <Label text="Kms" /> -->
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element10"
+                                label="Vehicle Number "
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="Input8"
+                                        value="{localModel>/VehicleNumber}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="20"
+                                    >
+                                        <layoutData>
+                                            <l:GridData
+                                                id="GridData8"
+                                                span="XL6 L6 M6 S6"
+                                            />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement
+                                id="element11"
+                                label="Port Code "
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="Input9"
+                                        value="{localModel>/portcode}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                              <f:FormElement
+                                id="element12"
+                                label="Sub Supply Description "
+                                visible="{localModel>/subsupplydescVisibility}"
+                            >
+                                <f:fields>
+                                    <Input
+                                        id="Input10"
+                                        value="{localModel>/SubSupplyTypeDesc}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="true"
+                                        
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                        </form:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </content>
+        <beginButton>
+            <Button
+                id="okbtn"
+                text="Save"
+                press="onDialogSave"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancelbtn"
+                text="Cancel"
+                press="onDialogCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

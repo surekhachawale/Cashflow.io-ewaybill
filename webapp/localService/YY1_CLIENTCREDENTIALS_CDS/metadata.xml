@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="YY1_CLIENTCREDENTIALS_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="I_Scbo_ILM_Status_TextType" sap:label="Text for ILM Status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="language"/>
+                    <PropertyRef Name="code"/>
+                </Key>
+                <Property Name="language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Lang." sap:quickinfo="Language Key"/>
+                <Property Name="code" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="description" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="description" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="P_Scbo_UserType" sap:label="User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="description" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account"/>
+            </EntityType>
+            <EntityType Name="YY1_CLIENTCREDENTIALSType" sap:label="Client Credentials" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SAP_UUID"/>
+                </Key>
+                <Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="PlantGSTIN" Type="Edm.String" MaxLength="20" sap:label="PlantGSTIN"/>
+                <Property Name="ClientCode_1" Type="Edm.String" MaxLength="20" sap:label="Client Code"/>
+                <Property Name="User_1" Type="Edm.String" MaxLength="20" sap:label="User"/>
+                <Property Name="Password" Type="Edm.String" MaxLength="20" sap:label="Password"/>
+                <Property Name="SAP_Description" Type="Edm.String" MaxLength="80" sap:label="Description"/>
+                <Property Name="SAP_CreatedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_CreatedByUser_Text" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_CreatedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Last Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_LastChangedByUser_Text" sap:label="Last Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LifecycleStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="SAP_LifecycleStatus_Text" sap:label="Lifecycle Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LifecycleStatus_Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_ILM_Status_Text" Relationship="YY1_CLIENTCREDENTIALS_CDS.assoc_F0EBC381DEFAD25F7F13A609EAE05798" FromRole="FromRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798" ToRole="ToRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798"/>
+                <NavigationProperty Name="to_SAPSysAdminDataChangeUser" Relationship="YY1_CLIENTCREDENTIALS_CDS.assoc_006454FD9B97D1F6D3FC1948A685B08C" FromRole="FromRole_assoc_006454FD9B97D1F6D3FC1948A685B08C" ToRole="ToRole_assoc_006454FD9B97D1F6D3FC1948A685B08C"/>
+                <NavigationProperty Name="to_SAPSysAdminDataCreateUser" Relationship="YY1_CLIENTCREDENTIALS_CDS.assoc_60C1CC942C39424A1E3C495DB6AECB12" FromRole="FromRole_assoc_60C1CC942C39424A1E3C495DB6AECB12" ToRole="ToRole_assoc_60C1CC942C39424A1E3C495DB6AECB12"/>
+            </EntityType>
+            <Association Name="assoc_006454FD9B97D1F6D3FC1948A685B08C" sap:content-version="1">
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" Multiplicity="1" Role="FromRole_assoc_006454FD9B97D1F6D3FC1948A685B08C"/>
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_006454FD9B97D1F6D3FC1948A685B08C"/>
+            </Association>
+            <Association Name="assoc_60C1CC942C39424A1E3C495DB6AECB12" sap:content-version="1">
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" Multiplicity="1" Role="FromRole_assoc_60C1CC942C39424A1E3C495DB6AECB12"/>
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_60C1CC942C39424A1E3C495DB6AECB12"/>
+            </Association>
+            <Association Name="assoc_F0EBC381DEFAD25F7F13A609EAE05798" sap:content-version="1">
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" Multiplicity="1" Role="FromRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798"/>
+                <End Type="YY1_CLIENTCREDENTIALS_CDS.I_Scbo_ILM_Status_TextType" Multiplicity="0..1" Role="ToRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798"/>
+            </Association>
+            <EntityContainer Name="YY1_CLIENTCREDENTIALS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_Scbo_ILM_Status_Text" EntityType="YY1_CLIENTCREDENTIALS_CDS.I_Scbo_ILM_Status_TextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="P_Scbo_User" EntityType="YY1_CLIENTCREDENTIALS_CDS.P_Scbo_UserType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="YY1_CLIENTCREDENTIALS" EntityType="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_006454FD9B97D1F6D3FC1948A685B08C" Association="YY1_CLIENTCREDENTIALS_CDS.assoc_006454FD9B97D1F6D3FC1948A685B08C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_CLIENTCREDENTIALS" Role="FromRole_assoc_006454FD9B97D1F6D3FC1948A685B08C"/>
+                    <End EntitySet="P_Scbo_User" Role="ToRole_assoc_006454FD9B97D1F6D3FC1948A685B08C"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_60C1CC942C39424A1E3C495DB6AECB12" Association="YY1_CLIENTCREDENTIALS_CDS.assoc_60C1CC942C39424A1E3C495DB6AECB12" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_CLIENTCREDENTIALS" Role="FromRole_assoc_60C1CC942C39424A1E3C495DB6AECB12"/>
+                    <End EntitySet="P_Scbo_User" Role="ToRole_assoc_60C1CC942C39424A1E3C495DB6AECB12"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F0EBC381DEFAD25F7F13A609EAE05798" Association="YY1_CLIENTCREDENTIALS_CDS.assoc_F0EBC381DEFAD25F7F13A609EAE05798" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_CLIENTCREDENTIALS" Role="FromRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798"/>
+                    <End EntitySet="I_Scbo_ILM_Status_Text" Role="ToRole_assoc_F0EBC381DEFAD25F7F13A609EAE05798"/>
+                </AssociationSet>
+                <FunctionImport Name="YY1_CLIENTCREDENTIALSSap_upsert" ReturnType="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" EntitySet="YY1_CLIENTCREDENTIALS" m:HttpMethod="POST">
+                    <Parameter Name="PlantGSTIN" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="ClientCode_1" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="User_1" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="Password" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="SAP_Description" Type="Edm.String" Mode="In" MaxLength="80" sap:label="Text of length 80"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALS_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType/PlantGSTIN" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALS_CDS_Entities/YY1_CLIENTCREDENTIALS" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_ILM_Status_Text"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_SAPSysAdminDataChangeUser"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_SAPSysAdminDataCreateUser"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALSType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>PlantGSTIN</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="YY1_CLIENTCREDENTIALS_CDS.YY1_CLIENTCREDENTIALS_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/sap/YY1_CLIENTCREDENTIALS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/sap/YY1_CLIENTCREDENTIALS_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

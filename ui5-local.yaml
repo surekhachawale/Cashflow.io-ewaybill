@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: einvoiceewaybill
+type: application
+framework:
+  name: SAPUI5
+  version: 1.130.7
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: einvoiceewaybill
+        ui5Theme: sap_horizon
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: https://my423651-api.s4hana.cloud.sap
+            destination: customizing_tenant
+            authenticationType: BasicAuthentication
+          - path: /api
+            url: https://testdigisign.primustechsys.com:4001
+            destination: cashflo
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my401956-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            path: /sap
+          - url: https://my423651-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            destination: customizing_tenant
+            path: /sap/opu/odata/sap/YY1_EINVOICEDOCS_CDS/
+          - url: https://my423651-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            destination: customizing_tenant
+            path: /sap/opu/odata/sap/YY1_EINVOICE_CDS/
+          - url: https://my423651-api.s4hana.cloud.sap
+            authenticationType: BasicAuthentication
+            destination: customizing_tenant
+            path: /sap/opu/odata/sap/YY1_CLIENTCREDENTIALS_CDS/
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/YY1_EINVOICEDOCS_CDS
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/YY1_EINVOICE_CDS
+            metadataPath: ./webapp/localService/YY1_EINVOICE_CDS/metadata.xml
+            mockdataPath: ./webapp/localService/YY1_EINVOICE_CDS/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/YY1_CLIENTCREDENTIALS_CDS
+            metadataPath: ./webapp/localService/YY1_CLIENTCREDENTIALS_CDS/metadata.xml
+            mockdataPath: ./webapp/localService/YY1_CLIENTCREDENTIALS_CDS/data
+            generateMockData: true
+        annotations: []

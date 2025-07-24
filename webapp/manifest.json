@@ -1,0 +1,150 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "einvoiceewaybill",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.16.5",
+      "toolsId": "984524d9-2381-4cad-9fa9-524ffc9e634b"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/YY1_EINVOICEDOCS_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "YY1_EINVOICE_CDS": {
+        "uri": "/sap/opu/odata/sap/YY1_EINVOICE_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/YY1_EINVOICE_CDS/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "YY1_CLIENTCREDENTIALS_CDS": {
+        "uri": "/sap/opu/odata/sap/YY1_CLIENTCREDENTIALS_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/YY1_CLIENTCREDENTIALS_CDS/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.130.7",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "einvoiceewaybill.i18n.i18n"
+        }
+      },
+      "mainService": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "YY1_EINVOICE_CDS": {
+        "dataSource": "YY1_EINVOICE_CDS",
+        "preload": true,
+        "settings": {}
+      },
+      "YY1_CLIENTCREDENTIALS_CDS": {
+        "dataSource": "YY1_CLIENTCREDENTIALS_CDS",
+        "preload": true,
+        "settings": {}
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "einvoiceewaybill.view",
+        "async": true,
+        "viewPath": "einvoiceewaybill.view"
+      },
+      "routes": [
+        {
+          "name": "Routeeinvoicewaybill",
+          "pattern": ":?query:",
+          "target": [
+            "Targeteinvoicewaybill"
+          ]
+        }
+      ],
+      "targets": {
+        "Targeteinvoicewaybill": {
+          "id": "einvoicewaybill",
+          "name": "einvoicewaybill"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "einvoiceewaybill.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "einvoiceewaybill"
+  }
+}

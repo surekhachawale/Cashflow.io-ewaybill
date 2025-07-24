@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="YY1_EINVOICE_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="I_Scbo_ILM_Status_TextType" sap:label="Text for ILM Status" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="language"/>
+                    <PropertyRef Name="code"/>
+                </Key>
+                <Property Name="language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Lang." sap:quickinfo="Language Key"/>
+                <Property Name="code" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="description" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="description" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="P_Scbo_UserType" sap:label="User" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+                <Property Name="description" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account"/>
+            </EntityType>
+            <EntityType Name="YY1_EINVOICEType" sap:label="EINVOICE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SAP_UUID"/>
+                </Key>
+                <Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                <Property Name="BillingDocument" Type="Edm.String" MaxLength="20" sap:label="Billing Document"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:label="Company Code"/>
+                <Property Name="BillingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Billing Date"/>
+                <Property Name="FiscalYear" Type="Edm.String" MaxLength="20" sap:label="Fiscal Year"/>
+                <Property Name="EdocumentStatus" Type="Edm.String" MaxLength="20" sap:label="Edocument Status"/>
+                <Property Name="IRN" Type="Edm.String" MaxLength="64" sap:label="IRN"/>
+                <Property Name="EWayBill" Type="Edm.String" MaxLength="12" sap:label="E-Way Bill"/>
+                <Property Name="EwayBillValidFromDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Eway Bill Valid From Date"/>
+                <Property Name="EwayBillValidFromTime" Type="Edm.Time" Precision="0" sap:label="Eway Bill Valid From Time"/>
+                <Property Name="EwayBillValidToDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Eway Bill Valid To Date"/>
+                <Property Name="EwayBillValidToTime" Type="Edm.Time" Precision="0" sap:label="Eway Bill Valid To Time"/>
+                <Property Name="AcknowledgementNo" Type="Edm.String" MaxLength="16" sap:label="Acknowledgement No."/>
+                <Property Name="AcknowledgementDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Acknowledgement Date"/>
+                <Property Name="AcknowledgementTime" Type="Edm.Time" Precision="0" sap:label="Acknowledgement Time"/>
+                <Property Name="QRCode1" Type="Edm.String" MaxLength="500" sap:label="QR Code 1"/>
+                <Property Name="QRCode2" Type="Edm.String" MaxLength="500" sap:label="QR Code 2"/>
+                <Property Name="ExtraText" Type="Edm.String" MaxLength="500" sap:label="Extra Text"/>
+                <Property Name="Message" Type="Edm.String" MaxLength="500" sap:label="Message"/>
+                <Property Name="CancelEwayBill" Type="Edm.Boolean" sap:label="Cancel Eway Bill"/>
+                <Property Name="CancelEinvoice" Type="Edm.Boolean" sap:label="Cancel Einvoice"/>
+                <Property Name="EWayCancelReasonCode" Type="Edm.String" MaxLength="20" sap:label="EWay Cancel Reason Code"/>
+                <Property Name="EWayCancelDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="EWay Cancel Date"/>
+                <Property Name="EWayCancelTime" Type="Edm.Time" Precision="0" sap:label="EWay Cancel Time"/>
+                <Property Name="EWayCancellationRemark" Type="Edm.String" MaxLength="20" sap:label="EWay Cancellation Remark"/>
+                <Property Name="EInvoiceReasonCode" Type="Edm.String" MaxLength="20" sap:label="EInvoice Reason Code"/>
+                <Property Name="EinvoiceCancellationRemark" Type="Edm.String" MaxLength="20" sap:label="Einvoice Cancellation Remark"/>
+                <Property Name="EinvoiceCancellationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Einvoice Cancellation Date"/>
+                <Property Name="EinvoiceCancellationTime" Type="Edm.Time" Precision="0" sap:label="Einvoice Cancellation Time"/>
+                <Property Name="TransporterID" Type="Edm.String" MaxLength="20" sap:label="Transporter ID"/>
+                <Property Name="TransportDocNo" Type="Edm.String" MaxLength="20" sap:label="Transport Doc. No."/>
+                <Property Name="TransportDocDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Transport Doc. Date"/>
+                <Property Name="TransporterGSTIN" Type="Edm.String" MaxLength="20" sap:label="Transporter GSTIN"/>
+                <Property Name="TransporterName" Type="Edm.String" MaxLength="50" sap:label="Transporter Name"/>
+                <Property Name="ModeofTransport" Type="Edm.String" MaxLength="20" sap:label="Mode of Transport"/>
+                <Property Name="VehicleType" Type="Edm.String" MaxLength="20" sap:label="Vehicle Type"/>
+                <Property Name="TransportDistanceinKM" Type="Edm.String" MaxLength="20" sap:label="Transport Distance in KM"/>
+                <Property Name="VehicleNo" Type="Edm.String" MaxLength="20" sap:label="Vehicle No."/>
+                <Property Name="PortCode" Type="Edm.String" MaxLength="20" sap:label="Port Code"/>
+                <Property Name="SubSupplyTypeDesc" Type="Edm.String" MaxLength="50" sap:label="SubSupplyTypeDesc"/>
+                <Property Name="PDFURL" Type="Edm.String" MaxLength="100" sap:label="PDF URL"/>
+                <Property Name="SummaryPDFURL" Type="Edm.String" MaxLength="100" sap:label="Summary PDF URL"/>
+                <Property Name="SAP_Description" Type="Edm.String" MaxLength="80" sap:label="Description"/>
+                <Property Name="SAP_CreatedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_CreatedByUser_Text" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_CreatedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Last Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_LastChangedByUser_Text" sap:label="Last Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LastChangedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="Description of the Technical User Account" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LifecycleStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="SAP_LifecycleStatus_Text" sap:label="Lifecycle Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SAP_LifecycleStatus_Text" Type="Edm.String" MaxLength="60" sap:label="Short Description" sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_ILM_Status_Text" Relationship="YY1_EINVOICE_CDS.assoc_685C9E8B26BCEC9DA4E71F7D630A71BF" FromRole="FromRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF" ToRole="ToRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF"/>
+                <NavigationProperty Name="to_SAPSysAdminDataChangeUser" Relationship="YY1_EINVOICE_CDS.assoc_9BD3F3737F0351F99031804D0DB85FEA" FromRole="FromRole_assoc_9BD3F3737F0351F99031804D0DB85FEA" ToRole="ToRole_assoc_9BD3F3737F0351F99031804D0DB85FEA"/>
+                <NavigationProperty Name="to_SAPSysAdminDataCreateUser" Relationship="YY1_EINVOICE_CDS.assoc_283E7EA6DE697A619052FB19E59F0742" FromRole="FromRole_assoc_283E7EA6DE697A619052FB19E59F0742" ToRole="ToRole_assoc_283E7EA6DE697A619052FB19E59F0742"/>
+            </EntityType>
+            <Association Name="assoc_9BD3F3737F0351F99031804D0DB85FEA" sap:content-version="1">
+                <End Type="YY1_EINVOICE_CDS.YY1_EINVOICEType" Multiplicity="1" Role="FromRole_assoc_9BD3F3737F0351F99031804D0DB85FEA"/>
+                <End Type="YY1_EINVOICE_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_9BD3F3737F0351F99031804D0DB85FEA"/>
+            </Association>
+            <Association Name="assoc_283E7EA6DE697A619052FB19E59F0742" sap:content-version="1">
+                <End Type="YY1_EINVOICE_CDS.YY1_EINVOICEType" Multiplicity="1" Role="FromRole_assoc_283E7EA6DE697A619052FB19E59F0742"/>
+                <End Type="YY1_EINVOICE_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_283E7EA6DE697A619052FB19E59F0742"/>
+            </Association>
+            <Association Name="assoc_685C9E8B26BCEC9DA4E71F7D630A71BF" sap:content-version="1">
+                <End Type="YY1_EINVOICE_CDS.YY1_EINVOICEType" Multiplicity="1" Role="FromRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF"/>
+                <End Type="YY1_EINVOICE_CDS.I_Scbo_ILM_Status_TextType" Multiplicity="0..1" Role="ToRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF"/>
+            </Association>
+            <EntityContainer Name="YY1_EINVOICE_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="I_Scbo_ILM_Status_Text" EntityType="YY1_EINVOICE_CDS.I_Scbo_ILM_Status_TextType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="P_Scbo_User" EntityType="YY1_EINVOICE_CDS.P_Scbo_UserType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="YY1_EINVOICE" EntityType="YY1_EINVOICE_CDS.YY1_EINVOICEType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_9BD3F3737F0351F99031804D0DB85FEA" Association="YY1_EINVOICE_CDS.assoc_9BD3F3737F0351F99031804D0DB85FEA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_EINVOICE" Role="FromRole_assoc_9BD3F3737F0351F99031804D0DB85FEA"/>
+                    <End EntitySet="P_Scbo_User" Role="ToRole_assoc_9BD3F3737F0351F99031804D0DB85FEA"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_685C9E8B26BCEC9DA4E71F7D630A71BF" Association="YY1_EINVOICE_CDS.assoc_685C9E8B26BCEC9DA4E71F7D630A71BF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_EINVOICE" Role="FromRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF"/>
+                    <End EntitySet="I_Scbo_ILM_Status_Text" Role="ToRole_assoc_685C9E8B26BCEC9DA4E71F7D630A71BF"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_283E7EA6DE697A619052FB19E59F0742" Association="YY1_EINVOICE_CDS.assoc_283E7EA6DE697A619052FB19E59F0742" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="YY1_EINVOICE" Role="FromRole_assoc_283E7EA6DE697A619052FB19E59F0742"/>
+                    <End EntitySet="P_Scbo_User" Role="ToRole_assoc_283E7EA6DE697A619052FB19E59F0742"/>
+                </AssociationSet>
+                <FunctionImport Name="YY1_EINVOICESap_upsert" ReturnType="YY1_EINVOICE_CDS.YY1_EINVOICEType" EntitySet="YY1_EINVOICE" m:HttpMethod="POST">
+                    <Parameter Name="BillingDocument" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="CompanyCode" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Text of length 4"/>
+                    <Parameter Name="BillingDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Billing Date" sap:display-format="Date"/>
+                    <Parameter Name="FiscalYear" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="EdocumentStatus" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="IRN" Type="Edm.String" Mode="In" MaxLength="64" sap:label="Text of length 64"/>
+                    <Parameter Name="EWayBill" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Text of length 12"/>
+                    <Parameter Name="EwayBillValidFromDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Eway Bill Valid From Date" sap:display-format="Date"/>
+                    <Parameter Name="EwayBillValidFromTime" Type="Edm.Time" Mode="In" Precision="0" sap:label="Field of type TIMS"/>
+                    <Parameter Name="EwayBillValidToDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Eway Bill Valid To Date" sap:display-format="Date"/>
+                    <Parameter Name="EwayBillValidToTime" Type="Edm.Time" Mode="In" Precision="0" sap:label="Field of type TIMS"/>
+                    <Parameter Name="AcknowledgementNo" Type="Edm.String" Mode="In" MaxLength="16" sap:label="Text of length 16"/>
+                    <Parameter Name="AcknowledgementDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Acknowledgement Date" sap:display-format="Date"/>
+                    <Parameter Name="AcknowledgementTime" Type="Edm.Time" Mode="In" Precision="0" sap:label="Field of type TIMS"/>
+                    <Parameter Name="QRCode1" Type="Edm.String" Mode="In" MaxLength="500" sap:label="Text of length 500"/>
+                    <Parameter Name="QRCode2" Type="Edm.String" Mode="In" MaxLength="500" sap:label="Text of length 500"/>
+                    <Parameter Name="ExtraText" Type="Edm.String" Mode="In" MaxLength="500" sap:label="Text of length 500"/>
+                    <Parameter Name="Message" Type="Edm.String" Mode="In" MaxLength="500" sap:label="Text of length 500"/>
+                    <Parameter Name="CancelEwayBill" Type="Edm.Boolean" Mode="In" sap:label="TRUE"/>
+                    <Parameter Name="CancelEinvoice" Type="Edm.Boolean" Mode="In" sap:label="TRUE"/>
+                    <Parameter Name="EWayCancelReasonCode" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="EWayCancelDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="EWay Cancel Date" sap:display-format="Date"/>
+                    <Parameter Name="EWayCancelTime" Type="Edm.Time" Mode="In" Precision="0" sap:label="Field of type TIMS"/>
+                    <Parameter Name="EWayCancellationRemark" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="EInvoiceReasonCode" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="EinvoiceCancellationRemark" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="EinvoiceCancellationDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Einvoice Cancellation Date" sap:display-format="Date"/>
+                    <Parameter Name="EinvoiceCancellationTime" Type="Edm.Time" Mode="In" Precision="0" sap:label="Field of type TIMS"/>
+                    <Parameter Name="TransporterID" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="TransportDocNo" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="TransportDocDate" Type="Edm.DateTime" Mode="In" Precision="0" sap:label="Transport Doc. Date" sap:display-format="Date"/>
+                    <Parameter Name="TransporterGSTIN" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="TransporterName" Type="Edm.String" Mode="In" MaxLength="50" sap:label="Text of length 50"/>
+                    <Parameter Name="ModeofTransport" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="VehicleType" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="TransportDistanceinKM" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="VehicleNo" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="PortCode" Type="Edm.String" Mode="In" MaxLength="20" sap:label="Text of length 20"/>
+                    <Parameter Name="SubSupplyTypeDesc" Type="Edm.String" Mode="In" MaxLength="50" sap:label="Text of length 50"/>
+                    <Parameter Name="PDFURL" Type="Edm.String" Mode="In" MaxLength="100" sap:label="Text of length 100"/>
+                    <Parameter Name="SummaryPDFURL" Type="Edm.String" Mode="In" MaxLength="100" sap:label="Text of length 100"/>
+                    <Parameter Name="SAP_Description" Type="Edm.String" Mode="In" MaxLength="80" sap:label="Text of length 80"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICE_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICEType/BillingDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICEType/BillingDocument" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICEType/CompanyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICE_CDS_Entities/YY1_EINVOICE" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_ILM_Status_Text"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_SAPSysAdminDataChangeUser"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_SAPSysAdminDataCreateUser"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICEType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>BillingDate</PropertyPath>
+                        <PropertyPath>CompanyCode</PropertyPath>
+                        <PropertyPath>BillingDocument</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="YY1_EINVOICE_CDS.YY1_EINVOICE_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/sap/YY1_EINVOICE_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my423651-api.s4hana.cloud.sap/sap/opu/odata/sap/YY1_EINVOICE_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

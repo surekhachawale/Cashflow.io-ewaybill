@@ -1,0 +1,144 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Dialog
+        id="cancelewaybillformDialog"
+        title=" Cancel eWay Bill Details"
+    >
+        <content>
+            <f:Form
+                id="cancelewaybillform"
+                editable="true"
+            >
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        id="grid"
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="4"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="2"
+                        columnsM="2"
+                        singleContainerFullSize="false"
+                    />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer id="containe">
+                        <form:formElements>
+                            <f:FormElement id="_IDGenFormElement2" label="Source Document ">
+                                <f:fields>
+                                    <Input id="_IDGenInput"
+                                        value="{EWBModel>/DocNumber}"
+                                        type="Text"
+                                        change=""
+                                        valueHelpRequest=""
+                                        showValueHelp="false"
+                                        enabled="true"
+                                        editable="false"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData6" span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement id="_IDGenFormElement5"
+                                visible="true"
+                                label="Cancel Reason Code "
+                                
+                            >
+                                <f:fields>
+                                    <Select
+                                        id="resoncodetype"
+                                        width="auto"
+                                        required="false"
+                                        visible="true"
+                                        selectedKey="{EWBModel>/EWayCancelReasonCode}"
+                                        valueStateText="Invalid entry"
+                                        forceSelection="false"
+                                    >
+                                        <items>
+                                            <core:Item
+                                                id="itme1"
+                                                key="1"
+                                                text="Duplicate"
+                                            />
+                                            <core:Item
+                                                id="itme2"
+                                                key="2"
+                                                text="Order Cancelled"
+                                            />
+                                            <core:Item
+                                                id="itme3"
+                                                key="3"
+                                                text="Data Entry Mistake"
+                                            />
+                                            <core:Item
+                                                id="itme4"
+                                                key="4"
+                                                text="Others"
+                                            />
+                                        </items>
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData7" span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Select>
+                                </f:fields>
+                            </f:FormElement>
+
+                            <f:FormElement id="_IDGenFormElement7" label="Cancellation Remarks ">
+                                <f:fields>
+                                    <Input
+                                        id="cancelremarks"
+                                        value="{EWBModel>/EWayCancellationRemark}"
+                                        enabled="true"
+                                        editable="true"
+                                        visible="true"
+                                        width="auto"
+                                        required="false"
+                                        valueStateText="Invalid entry"
+                                        maxLength="0"
+                                    >
+                                        <layoutData>
+                                            <l:GridData id="_IDGenGridData8" span="XL6 L6 M6 S6" />
+                                        </layoutData>
+                                    </Input>
+                                </f:fields>
+                            </f:FormElement>
+                        </form:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </content>
+        <beginButton>
+            <Button
+                id="cancelewbsave"
+                text="Save"
+                press="oncancelewbSave"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancelewbcancel"
+                text="Cancel"
+                press="oncancelewbCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

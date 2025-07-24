@@ -1,0 +1,1439 @@
+<mvc:View
+    controllerName="einvoiceewaybill.controller.einvoicewaybill"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+>
+    <!-- <Page id="page" title="{i18n>title}"> </Page> -->
+
+    <SplitContainer
+        id="SplitContDemo"
+        initialDetail="detail"
+        initialMaster="master"
+    >
+        <masterPages>
+            <Page
+                id="master"
+                title="Einvoice Cockpit"
+                backgroundDesign="Standard"
+                enableScrolling="false"
+            >
+              <Image
+                    id="img1"
+                    src="images/GNAAXLELOGO.png"
+                    
+                    width="310px"
+                    height="210px"
+                />
+            
+               
+                <FlexBox
+                    direction="Row"
+                    alignItems="Start"
+                    class="sapUiTinyMarginBottom"
+                >
+                    <Text
+                        text=""
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <!-- <Label
+                        id="lbl01"
+                        text="Chembond Chemical Limited."
+                        design="Bold"
+                        class="sapUiTinyMarginEnd"
+                    /> -->
+                    <!-- <tnt:InfoLabel id="il10" text="Shivalik" colorScheme="1" displayOnly= "true" /> 
+					<tnt:InfoLabel id="tnlbl1" text="Shivalik Engineering Industries Ltd." colorScheme="1" displayOnly= "true"  ></tnt:InfoLabel>-->
+                </FlexBox>
+                <FlexBox
+                    direction="Row"
+                    alignItems="Start"
+                    class="sapUiTinyMarginBottom"
+                >
+                    <Text
+                        text=""
+                        class="sapUiTinyMarginEnd"
+                    />
+                    <Label
+                        id="lbl0"
+                        text="{i18n>title}"
+                        design="Bold"
+                        vAlign="Inherit"
+                        textDirection="Inherit"
+                    />
+                </FlexBox>
+                <!-- <List id="lst1">
+					<StandardListItem id="_IDGenStandardListItem1" title="Shivalik Engineering Industries Ltd." >
+						<customData>
+                    		<core:CustomData key="class" value="boldText" />
+                		</customData>
+					</StandardListItem>
+					<StandardListItem id="_IDGenStandardListItem2" title="{i18n>title}">
+						<customData>
+                    		<core:CustomData key="class" value="boldText"  />
+                		</customData>
+					</StandardListItem>
+				</List> -->
+                <Table
+                    id="_IDGenTable"
+                    inset="false"
+                    items="{path: '/listData'}"
+                >
+                    <columns>
+                        <Column
+                            id="_IDGenColumn"
+                            width="4rem"
+                        >
+                            <!-- <header>
+                    	        <Label id="lbl01" text="" />
+                	        </header> -->
+                        </Column>
+                        <Column
+                            id="_IDGenColumn1"
+                            width="1rem"
+                        />
+                    </columns>
+                    <items>
+                        <ColumnListItem id="clmlst1">
+                            <cells>
+                                <Text
+                                    id="txt01"
+                                    text="{title}"
+                                />
+                                <Text
+                                    id="txt02"
+                                    text="{number}"
+                                />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Page>
+        </masterPages>
+        <detailPages>
+            <Page
+                id="detail"
+                title="Selection Parameters"
+                backgroundDesign="Solid"
+                showNavButton="{= !${device>/system/desktop} }"
+                navButtonPress=""
+                enableScrolling="false"
+                class="sapUiLargePaddingBegin
+
+"
+            >
+                <f:Form
+                    id="selectionParameters"
+                    editable="true"
+                    title=""
+                >
+                    <f:layout>
+                        <f:ResponsiveGridLayout
+                            id="_IDGenResponsiveGridLayout1"
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="4"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false"
+                        />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer id="_IDGenFormContainer1">
+                            <form:formElements>
+                            <f:FormElement
+                                    id="_IDGenFormElement1"
+                                    visible="true"
+                                >
+                                    <f:label>
+                                        <Label
+                                            id="_IDGenLabel1"
+                                            text="Billing Date"
+                                            design="Standard"
+                                            width="100%"
+                                            textAlign="Begin"
+                                            textDirection="Inherit"
+                                            visible="true"
+                                        />
+                                    </f:label>
+                                    <f:fields>
+                                        <DatePicker
+                                            id="idFromDate"
+                                            width="auto"
+                                            required="true"
+                                            placeholder="Enter Start Date"
+                                            valueStateText="Invalid entry"
+                                            enabled="true"
+                                            visible="true"
+                                            valueFormat="yyyy-MM-ddT00:00:00"
+                                            displayFormat="dd.MM.yyyy"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData3"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </DatePicker>
+                                        <DatePicker
+                                            id="idToDate"
+                                            width="auto"
+                                            required="true"
+                                            placeholder="Enter End Date"
+                                            valueStateText="Invalid entry"
+                                            enabled="true"
+                                            visible="true"
+                                            valueFormat="yyyy-MM-ddT00:00:00"
+                                            displayFormat="dd.MM.yyyy"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData4"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </DatePicker>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement
+                                    id="_IDGenFormElement4"
+                                    label="Company Code"
+                                >
+                                    <f:fields>
+                                        <MultiInput
+                                            id="idcompanycode"
+                                            value="{localModel>/companycode}"
+                                            valueHelpRequest="_oncompanycodeValueHelpRequest"
+                                            showValueHelp="true"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </MultiInput>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement
+                                    id="_IDGenFormElement6"
+                                    label="Plant"
+                                >
+                                    <f:fields>
+                                        <MultiInput
+                                            id="idplant"
+                                            value="{localModel>/Plant}"
+                                            valueHelpRequest="_onplantValueHelpRequest"
+                                            showValueHelp="true"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </MultiInput>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement
+                                    
+                                    label="Billing Document"
+                                >
+                                    <f:fields>
+                                        <Input
+                                            id="idBillingDocFrom"
+                                            value="{localModel>/BillingDocFrom}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData1"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                        <Input
+                                            id="idBillingDocTo"
+                                            value="{localModel>/BillingDocTo}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData2"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                    </f:fields>
+                                </f:FormElement>
+                                   <f:FormElement
+                                    label="Document Reference ID"
+                                >
+                                    <f:fields>
+                                        <Input
+                                            id="idDocrefFrom"
+                                            value="{localModel>/DocrefFrom}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                  
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                        <Input
+                                            id="idDocrefto"
+                                            value="{localModel>/DocrefTo}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                    </f:fields>
+                                </f:FormElement>
+                                  <f:FormElement
+                                    label=" Accounting Document"
+                                >
+                                    <f:fields>
+                                        <Input
+                                            id="idaccdocFrom"
+                                            value="{localModel>/AccdocFrom}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                  
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                        <Input
+                                            id="idaccdocto"
+                                            value="{localModel>/AccdocTo}"
+                                            change="_onBillingDocValueHelpRequest"
+                                            valueHelpRequest="_onBillingDocValueHelpRequest"
+                                            showValueHelp="false"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </Input>
+                                    </f:fields>
+                                </f:FormElement>  
+                                <f:FormElement
+                                    id="_IDGenFormElement3"
+                                    label="Billing Type"
+                                >
+                                    <f:fields>
+                                        <MultiInput
+                                            id="idBillingType"
+                                            value="{localModel>/BillingType}"
+                                            change=".onBillTypeChange"
+                                            valueHelpRequest="_onBillTypeValueHelpRequest"
+                                            showValueHelp="true"
+                                            enabled="true"
+                                            editable="true"
+                                            visible="true"
+                                            width="auto"
+                                            required="false"
+                                            valueStateText="Invalid entry"
+                                            maxLength="0"
+                                        >
+                                            <layoutData>
+                                                <l:GridData
+                                                    id="_IDGenGridData5"
+                                                    span="XL1 L2 M2 S4"
+                                                />
+                                            </layoutData>
+                                        </MultiInput>
+                                    </f:fields>
+                                </f:FormElement>
+                            </form:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+
+                <t:Table
+                    id="idEntryTable"
+                    class="sapUiResponsiveMargin sapUiTable"
+                    rows="{entryModel>/items}"
+                    selectionMode="Multi"
+                    fieldGroupIds=""
+                    paste="onPaste"
+                    visible="true"
+                    ariaLabelledBy="title"
+                    enableCellFilter="{ui>/enableCellFilter}"
+                    
+
+                >
+                    <t:extension>
+                        <OverflowToolbar id="_IDGenOverflowToolbar2">
+                            <Title
+                                id="title2"
+                                text="eInvoice and eWay Bill Generation Cockpit"
+                            />
+                            <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                            <Button
+                                id="executeBtn"
+                                press="onExecute"
+                                text="Execute"
+                            />
+                            <Button
+                                id="exportBtn"
+                                press="onExport"
+                                text="Export"
+                            />
+                             <Button
+                                text="Download Summary PDF"
+                                press="onDownloadSummaryPDF"
+                                icon="sap-icon://download-document"
+                                visible="true"
+/>
+                            <Button
+                                text="Download Detailed PDF"
+                                press="onDownloadPDF"
+                                icon="sap-icon://download-document"
+                                visible="true"
+/>
+                        </OverflowToolbar>
+                        <OverflowToolbar id="_IDGenOverflowToolbar3">
+                            <Button
+                                id="genIRN"
+                                press="onGenerateIRN"
+                                text="Generate IRN"
+                            />
+                            <Button
+                                id="genIRNBill"
+                                press="onGenerateIRNEWayBill"
+                                text="Generate IRN + eWay Bill"
+                            />
+                            <Button
+                                id="genBill"
+                                press="onGenerateBill"
+                                text="Generate EWay Bill"
+                            />
+                            <Button
+                                id="cancelBill"
+                                press="onCancelBill"
+                                text="Cancel EWay Bill"
+                            />
+                            <Button
+                                id="canelIRN"
+                                press="onCancelIRN"
+                                text="Cancel IRN"
+                            />
+                            <Button
+                                id="editBtn"
+                                press="onEdit"
+                                text="Edit Eway Bill Details"
+                            />
+                            <ToolbarSpacer id="_IDGenToolbarSpace3" />
+
+                            <Button
+                                id="printBtn"
+                                press="onPrint"
+                                text="Print"
+                                visible="false"
+                            />
+                            <Button
+                                id="_IDGenButton"
+                                press="downloadPayload"
+                                text="Download JSON"
+                            />
+                        </OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <!-- <t:Column id="clm1" width="6rem" filterProperty="Status" sortProperty="Status">
+                        	<Label id="lbl1" text="Status" />
+                        	<t:template>
+                    	        <Text id="txt1" text="{entryModel>Status}" wrapping="false" />
+								<ObjectStatus id="objStatus" text="{entryModel>Status}" 
+								icon="{= ${entryModel>DocumentStatus} === 'eDocument Created' ? 'sap-icon://triangle' :
+									${entryModel>DocumentStatus} === 'E-Invoice Generated' ? 'sap-icon://triangle' :
+                    				${entryModel>DocumentStatus} === 'eDocument Cancelled' ? 'sap-icon://sys-enter' : 
+                    				${entryModel>DocumentStatus} === 'eDocument has errors' ? 'sap-icon://square-task' :
+									${entryModel>DocumentStatus} === 'Errors received form interface' ? 'sap-icon://circle-task' : ''}"
+            					state="{= ${entryModel>DocumentStatus} === 'eDocument Created' ? 'Warning' :
+									${entryModel>DocumentStatus} === 'E-Invoice Generated' ? 'Warning' :
+                     				${entryModel>DocumentStatus} === 'eDocument Cancelled' ? 'Success' :
+                     				${entryModel>DocumentStatus} === 'eDocument has errors' ? 'Error':
+									${entryModel>DocumentStatus} === 'Errors received form interface' ? 'Error' : 'None'}" />
+                	        </t:template>
+            	        </t:Column> -->
+                        <t:Column
+                            id="clm1"
+                            width="4rem"
+                            filterProperty="Status"
+                            sortProperty="Status"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl1"
+                                text="Status"
+                            />
+                            <t:template>
+                                <ObjectStatus
+                                    id="objStatus"
+                                    text="{entryModel>Status}"
+                                    icon="{= ${entryModel>DocumentStatus} === 'Success' ? 'sap-icon://sys-enter' :
+                                             ${entryModel>DocumentStatus} === 'eDocument Created'  ? 'sap-icon://project-definition-triangle-2' : 
+                                             ${entryModel>DocumentStatus} === 'E-Invoice Generated' || ${entryModel>DocumentStatus} === 'E-Way Bill Generated' ? 'sap-icon://color-fill' :
+                                             ${entryModel>DocumentStatus} === 'E-Invoice Cancelled' || ${entryModel>DocumentStatus} === 'E-Way Bill Cancelled' ? 'sap-icon://cancel' :
+                    			             ${entryModel>DocumentStatus} === 'Cancelled' ? 'sap-icon://sys-cancel-2' :
+                    			             ${entryModel>DocumentStatus} === 'eDocument has errors'  ? 'sap-icon://circle-task-2' : '' }"
+
+                                    state="{= ${entryModel>DocumentStatus} === 'Success' ? 'Success' :
+                                              ${entryModel>DocumentStatus} === 'eDocument Created' ? 'Warning' :
+                                              ${entryModel>DocumentStatus} === 'E-Invoice Generated'|| ${entryModel>DocumentStatus} === 'E-Way Bill Generated' ? 'Success' :
+                    			               ${entryModel>DocumentStatus} === 'E-Invoice Cancelled'|| ${entryModel>DocumentStatus} === 'E-Way Bill Cancelled' ? 'Error':
+                                              ${entryModel>DocumentStatus} === 'Cancelled' ? 'Error' :
+                    			              ${entryModel>DocumentStatus} === 'eDocument has errors' ? 'Error' : 'None' }"
+                                    tooltip="{= ${entryModel>DocumentStatus} === 'Success' ? 'Complete' :
+                                                ${entryModel>DocumentStatus} === 'eDocument Created'  ? 'In Process' : 
+                                                ${entryModel>DocumentStatus} === 'E-Invoice Generated'  ? 'E-Invoice Generated':
+                                                ${entryModel>DocumentStatus} === 'E-Invoice Cancelled' ? 'E-Invoice Cancelled':
+                                                ${entryModel>DocumentStatus} === 'E-Way Bill Cancelled' ? 'E-Way Bill Cancelled':
+                                                ${entryModel>DocumentStatus} === 'E-Way Bill Generated' ? 'E-Way Bill Generated' : 
+                				                ${entryModel>DocumentStatus} === 'Cancelled' ? 'eDocument Cancelled' :
+                				                ${entryModel>DocumentStatus} === 'eDocument has errors' ? 'Action Required' : '' }"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm2"
+                            width="12rem"
+                            filterProperty="DocumentStatus"
+                            sortProperty="DocumentStatus"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl2"
+                                text="Document Status"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt2"
+                                    text="{entryModel>DocumentStatus}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm3"
+                            width="7rem"
+                            filterProperty="CreationDate"
+                            sortProperty="CreationDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl3"
+                                text="Creation Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt3"
+                                    text="{entryModel>CreationDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm4"
+                            width="6rem"
+                            filterProperty="CreatedOn"
+                            sortProperty="CreatedOn"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl4"
+                                text="Created On"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt4"
+                                    text="{entryModel>CreatedOn}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm5"
+                            width="7em"
+                            filterProperty="CreatedBy"
+                            sortProperty="CreatedBy"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl5"
+                                text="Created By"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt5"
+                                    text="{entryModel>CreatedBy}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="7em"
+                            filterProperty="BillingDocumentDate"
+                            sortProperty="BillingDocumentDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="Billing Document Date"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>BillingDocumentDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clmb"
+                            width="7rem"
+                            filterProperty="BillingDocument"
+                            sortProperty="BillingDocument"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lblb"
+                                text="Billing Document"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txtb"
+                                    text="{entryModel>BillingDocument}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm6"
+                            width="7rem"
+                            filterProperty="PostingDate"
+                            sortProperty="PostingDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl6"
+                                text="Posting Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt6"
+                                    text="{entryModel>PostingDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm7"
+                            width="9rem"
+                            filterProperty="DocumentNumber"
+                            sortProperty="DocumentNumber"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lb7"
+                                text="Document Number"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt7"
+                                    text="{entryModel>DocumentNumber}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm"
+                            width="9rem"
+                            filterProperty="Accountingdocument"
+                            sortProperty="Accountingdocument"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lb"
+                                text="Accounting Document"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt"
+                                    text="{entryModel>Accountingdocument}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm8"
+                            width="8rem"
+                            filterProperty="CompanyCode"
+                            sortProperty="CompanyCode"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lb8"
+                                text="Company Code"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt8"
+                                    text="{entryModel>CompanyCode}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm9"
+                            width="5rem"
+                            filterProperty="Plant"
+                            sortProperty="Plant"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lb9"
+                                text="Plant"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt9"
+                                    text="{entryModel>Plant}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm10"
+                            width="9rem"
+                            filterProperty="SalesOrganization"
+                            sortProperty="SalesOrganization"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl10"
+                                text="Sales Organization"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt10"
+                                    text="{entryModel>SalesOrganization}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm11"
+                            width="6rem"
+                            filterProperty="BillingType"
+                            sortProperty="BillingType"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl11"
+                                text="Billing Type"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt11"
+                                    text="{entryModel>BillingType}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm12"
+                            width="12rem"
+                            filterProperty="InvoiceRefNum"
+                            sortProperty="InvoiceRefNum"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl12"
+                                text="Invoice Reference Number"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt12"
+                                    text="{entryModel>InvoiceRefNum}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm13"
+                            width="12rem"
+                            filterProperty="AcknowledgementNum"
+                            sortProperty="AcknowledgementNum"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl13"
+                                text="Acknowledgement Number"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt13"
+                                    text="{entryModel>AcknowledgementNum}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm14"
+                            width="11rem"
+                            filterProperty="AcknowledgementDate"
+                            sortProperty="AcknowledgementDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl14"
+                                text="Acknowledgement Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt14"
+                                    text="{entryModel>AcknowledgementDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="colMessage"
+                            width="11rem"
+                            filterProperty="Messages"
+                            sortProperty="Messages"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lblMessage"
+                                text="Messages"
+                            />
+                            <t:template>
+                                <Text
+                                    id="textMessage"
+                                    text="{entryModel>Messages}"
+                                    wrapping="true"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm15"
+                            width="11rem"
+                            filterProperty="AcknowledgementTime"
+                            sortProperty="AcknowledgementTime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl15"
+                                text="Acknowledgement Time"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt15"
+                                    text="{entryModel>AcknowledgementTime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="8rem"
+                            filterProperty="CancelEinvoice"
+                            sortProperty="CancelEinvoice"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="E-Invoice Cancellation Status"
+                            />
+                            <t:template>
+                                <!-- <Text
+                                    id="txt22"
+                                    text="{entryModel>eWayBillStatus}"
+                                    wrapping="false"
+                                /> -->
+                                <CheckBox  selected="{entryModel>CancelEinvoice}" editable="false" ></CheckBox>
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="12rem"
+                            filterProperty="EInvoiceReasonCode"
+                            sortProperty="EInvoiceReasonCode"
+                            hAlign="Center"
+                        >
+                            <Label
+                            
+                                text="E-Invoice Cancellation Code"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>EInvoiceReasonCode}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="10rem"
+                            filterProperty="EinvoiceCancellationRemark"
+                            sortProperty="EinvoiceCancellationRemark"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="E-Invoice Cancel Remark"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>EinvoiceCancellationRemark}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm16"
+                            width="8rem"
+                            filterProperty="CancelledDate"
+                            sortProperty="CancelledDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl16"
+                                text="Cancelled Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt16"
+                                    text="{entryModel>CancelledDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm17"
+                            width="8rem"
+                            filterProperty="CancelledTime"
+                            sortProperty="CancelledTime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl17"
+                                text="Cancelled Time"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt17"
+                                    text="{entryModel>CancelledTime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                         <t:Column
+                            id="clme"
+                            width="11rem"
+                            filterProperty="EWayBill"
+                            sortProperty="EWayBill"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lble"
+                                text="eWay Bill Number"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>EWayBill}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm18"
+                            width="11rem"
+                            filterProperty="eWayBillCreationDate"
+                            sortProperty="eWayBillCreationDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl18"
+                                text="eWay Bill Creation Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt18"
+                                    text="{entryModel>eWayBillCreationDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm19"
+                            width="11rem"
+                            filterProperty="eWayBillCreationTime"
+                            sortProperty="eWayBillCreationTime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl19"
+                                text="eWay Bill Creation Time"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt19"
+                                    text="{entryModel>eWayBillCreationTime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm21"
+                            width="6rem"
+                            filterProperty="ValidFromdate"
+                            sortProperty="ValidFromdate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl21"
+                                text=" Eway Valid From Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt21"
+                                    text="{entryModel>ValidFromdate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="6rem"
+                            filterProperty="ValidFromtime"
+                            sortProperty="ValidFromtime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="Eway Valid From Time"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>ValidFromtime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                         <t:Column
+                            id="clm20"
+                            width="5rem"
+                            filterProperty="ValidTodate"
+                            sortProperty="ValidTodate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl20"
+                                text="Eway Valid To Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt20"
+                                    text="{entryModel>ValidTodate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="5rem"
+                            filterProperty="ValidTotime"
+                            sortProperty="ValidTotime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="Eway Valid To Time"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>ValidTotime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        
+                        <t:Column
+                            id="clm22"
+                            width="8rem"
+                            filterProperty="eWayBillStatus"
+                            sortProperty="eWayBillStatus"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl22"
+                                text="eWay Bill Cancellation Status"
+                            />
+                            <t:template>
+                                <!-- <Text
+                                    id="txt22"
+                                    text="{entryModel>eWayBillStatus}"
+                                    wrapping="false"
+                                /> -->
+                                <CheckBox  selected="{entryModel>eWayBillStatus}" editable="false" ></CheckBox>
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm23"
+                            width="12rem"
+                            filterProperty="EWayCancelReasonCode"
+                            sortProperty="EWayCancelReasonCode"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl23"
+                                text="Cancellation Code - EWB"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt23"
+                                    text="{entryModel>EWayCancelReasonCode}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm24"
+                            width="10rem"
+                            filterProperty="EWayCancellationRemark"
+                            sortProperty="EWayCancellationRemark"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl24"
+                                text="EWB Cancel Remark"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt24"
+                                    text="{entryModel>EWayCancellationRemark}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm25"
+                            width="9rem"
+                            filterProperty="EWBCancelDate"
+                            sortProperty="EWBCancelDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl25"
+                                text="EWB Cancel Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt25"
+                                    text="{entryModel>EWBCancelDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            
+                            width="9rem"
+                            filterProperty="EWayCancelTime"
+                            sortProperty="EWayCancelTime"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="EWB Cancel Time"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>EWayCancelTime}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm26"
+                            width="8rem"
+                            filterProperty="TransporterID"
+                            sortProperty="TransporterID"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl26"
+                                text="Transporter ID"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt26"
+                                    text="{entryModel>TransporterID}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm27"
+                            width="13rem"
+                            filterProperty="TransportDocNum"
+                            sortProperty="TransportDocNum"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl27"
+                                text="Transport Document Number"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt27"
+                                    text="{entryModel>TransportDocNum}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm28"
+                            width="12rem"
+                            filterProperty="TransportDocDate"
+                            sortProperty="TransportDocDate"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl28"
+                                text="Transport Document Date"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt28"
+                                    text="{entryModel>TransportDocDate}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm29"
+                            width="8rem"
+                            filterProperty="VehicleNum"
+                            sortProperty="VehicleNum"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl29"
+                                text="Vehicle Number"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt29"
+                                    text="{entryModel>VehicleNum}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm30"
+                            width="7rem"
+                            filterProperty="VehicleType"
+                            sortProperty="VehicleType"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl30"
+                                text="Vehicle Type"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt30"
+                                    text="{entryModel>VehicleType}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm31"
+                            width="9rem"
+                            filterProperty="ModeOfTransport"
+                            sortProperty="ModeOfTransport"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl31"
+                                text="Mode Of Transport"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt31"
+                                    text="{entryModel>ModeOfTransport}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <t:Column
+                            id="clm32"
+                            width="9rem"
+                            filterProperty="TransporterName"
+                            sortProperty="TransporterName"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl32"
+                                text="Transporter Name"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt32"
+                                    text="{entryModel>TransporterName}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                        <!-- <t:Column
+                            id="clm33"
+                            width="9rem"
+                            filterProperty="TransporterGSTIN"
+                            sortProperty="TransporterGSTIN"
+                            hAlign="Center"
+                        >
+                            <Label
+                                id="lbl33"
+                                text="Transporter GSTIN"
+                            />
+                            <t:template>
+                                <Text
+                                    id="txt33"
+                                    text="{entryModel>TransporterGSTIN}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column> -->
+                         <t:Column
+                            
+                            width="9rem"
+                            filterProperty="PortCode"
+                            sortProperty="PortCode"
+                            hAlign="Center"
+                        >
+                            <Label
+                                
+                                text="Port Code"
+                            />
+                            <t:template>
+                                <Text
+                                    
+                                    text="{entryModel>PortCode}"
+                                    wrapping="false"
+                                />
+                            </t:template>
+                        </t:Column>
+                    </t:columns>
+                    <!-- <t:footer>  
+                	    <HBox class="sapUiSmallMargin" justifyContent="End">
+            	            <Text text="Total Amount: "/>
+        	                <Text id="footerTotalAmount" text="{/totalAmount}" />
+    	                </HBox>
+	                </t:footer> -->
+                </t:Table>
+            </Page>
+        </detailPages>
+    </SplitContainer>
+</mvc:View>

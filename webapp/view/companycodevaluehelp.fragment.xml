@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <SelectDialog
+        title="Company Code"
+        growingThreshold="20"
+        search="_oncompanycodeSearch"
+        confirm="_oncompanycodeValueHelpConfirm"
+        items="{OwnerModel>/results}"
+        multiSelect="true"
+    >
+        <customData>
+            <core:CustomData
+                key="selectedPropertyPath"
+                value="{OwnerModel>CompanyCode}"
+                writeToDom="false"
+            />
+        </customData>
+        <items>
+            <StandardListItem
+                title="{OwnerModel>CompanyCode}"
+                infoState="None"
+            />
+        </items>
+    </SelectDialog>
+</core:FragmentDefinition>
